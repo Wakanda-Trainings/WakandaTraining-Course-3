@@ -1,0 +1,201 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+   "http://www.w3.org/TR/html4/loose.dtd">
+
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Wakanda Training Day 1</title>
+	<meta name="generator" content="TextMate http://macromates.com/">
+	<meta name="author" content="David Robbins">
+	<!-- Date: 2013-01-25 -->
+	
+	<link rel="stylesheet" href="reveal/css/reveal.css">
+	<link rel="stylesheet" href="reveal/css/theme/wak.css" id="theme">
+
+	<!-- For syntax highlighting -->
+	<link rel="stylesheet" href="reveal/lib/css/zenburn.css">
+</head>
+<body>
+<div id="container">
+<div class="reveal">
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">	
+
+    <section>
+        <h2>Wakanda Training</h2>
+		<br/>
+        <p><strong>Day 1 – Intro to Wakanda Server-Side</strong></p>
+        <br/>
+
+        <p>Dave Terry</p>
+
+        <p>May, 2013</p>
+
+    </section>
+
+    <section>
+        <h2>Wakanda Overview</h2>
+        <ul>
+            <li>Wakanda parts</li>
+            <li>Quick Demo of a Wakanda application</li>
+            <li>Wakanda Concepts and Terminology</li>
+            <li>Wakanda Data Model</li>
+        </ul>
+    </section>
+
+	<section>
+	<h2>Manipulating entities</h2>
+    <ul>
+		<li class="fragment">Accessing from a collection – like an array</li>
+		<li class="fragment">Accessing by key</li>
+		<li class="fragment">Using an object template to find an entity</li>
+		<li class="fragment">Creating new ones</li>
+		<li class="fragment">Using relation attributes from an entity</li>
+    </ul>
+    </section>
+
+
+
+	<section class="slide">
+	   <h2>Wakanda Architecture</h2>
+       <img alt="" src="reveal/img/wakandaArchitecture.png">
+
+		<br /><br />
+       <div class="fragment">
+           	<p><strong>Wakanda Server</strong><p>
+			<p>The datastore – housing all your application data and business logic</p>
+			<p>HTTP server – communicating with the outside world via JSON/REST</p>
+ 		</div>
+
+       <br /><br />
+       <div class="fragment">
+        <p><strong>Wakanda Studio</strong><p>
+		<p>Solution Manager</p>
+		<p>Datastore Model Designer - UI Designer - Code Editor</p>
+       </div>
+       
+		<br /><br />
+       <div class="fragment">
+           	<p><strong>Wakanda Client Framework</strong></p>
+			<p>Widgets on the browser-based front end</p>
+         	<p>A datasource between them</p>
+       </div>
+
+		<aside class="notes">
+			<p>
+			One of the key points of Wakanda’s datastore is that it’s very, very fast.
+			In our tests, we have found that an item can be queried from among a billion objects in a matter of milliseconds.
+			</p>
+			<p>
+			This efficiency comes from the architecture of the datastore itself: It contains all the data as well as the model,
+			describing the datastore classes that define how the data is structured.
+			</p>
+		</aside>
+   </section>
+
+
+
+<section>
+	<h2>Custom Login</h2>
+	</br>
+
+<pre><code>onRestrictingQuery:function()
+   //create an empty collection. Return this by default.
+   var result = ds.PTO_Request.createEntityCollection();
+   <span class="fragment">
+   //Load User entity.
+   var myCurrentUser = currentUser(); 
+   var sessionRef = currentSession(); 
+   </span><span class="fragment">
+   if (currentSession().belongsTo("Administrator")) {
+      result = ds.PTO_Request.all();
+   } else {
+      result = ds.PTO_Request.query("requestor.login = :1", myCurrentUser.name);
+   }
+   </span>
+   return result;
+}</code></pre>
+</section>
+
+   <section>
+       	<h2>Wakanda Quotes</h2>
+		</br>
+       	<p>
+			<q cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
+				I first started out with exploring Node.js but with Wakanda you get, as a developer, 
+				</br>
+				much more productivity thanks to the superb IDE.
+			</q>
+			<p style="text-align: center;">Robby Pelssers, Ciber</p>
+		</p>
+   </section>
+
+	<section>
+		<h2>Take a Moment</h2>
+		<p>
+		Press b or period on your keyboard to enter the 'paused' mode.
+		</br> </br> 
+		This mode is helpful when you want to take distracting slides off the screen 
+		</br>during a presentation.
+		</p>
+	</section>
+	
+	<section>
+		<section data-state="alert">
+			<h2>Red Alert</h2>
+		</section>
+
+		<section data-state="blackout">
+			<h2>"blackout"</h2>
+		</section>
+
+		<section data-state="soothe">
+			<h2>"soothe"</h2>
+		</section>
+	</section>
+
+	<section>
+        <h2>The End</h2>
+		<br/>
+        <p><strong>Day 1 – Intro to Wakanda Server-Side</strong></p>
+        <br/>
+
+        <p>Dave Terry</p>
+
+        <p>May, 2013</p>
+
+    </section>
+
+	
+</div>	
+</div>
+</div>
+<script type="text/javascript" src="reveal/lib/js/head.min.js"></script>
+<script type="text/javascript" src="reveal/js/reveal.js"></script>
+<script type="text/javascript">
+Reveal.initialize({
+	controls: true,
+	progress: true,
+	history: true,
+	center: true,
+	overview: true,
+
+	theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+	transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/fade/none
+
+	// Optional libraries used to extend on reveal.js
+	dependencies: [
+		{ src: 'reveal/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+		{ src: 'reveal/plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+		{ src: 'reveal/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+		{ src: 'reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+		{ src: 'reveal/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+		{ src: 'reveal/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+	//	{ src: 'reveal/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+	]
+});
+
+
+</script>
+</body>
+</html>

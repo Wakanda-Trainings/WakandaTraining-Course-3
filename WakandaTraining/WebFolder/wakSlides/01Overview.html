@@ -1,0 +1,193 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+   "http://www.w3.org/TR/html4/loose.dtd">
+
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Wakanda Training Day 1</title>
+	<meta name="generator" content="TextMate http://macromates.com/">
+	<meta name="author" content="David Robbins">
+	<!-- Date: 2013-01-25 -->
+	
+	<link rel="stylesheet" href="reveal/css/reveal.css">
+	<link rel="stylesheet" href="reveal/css/theme/wak.css" id="theme">
+
+	<!-- For syntax highlighting -->
+	<link rel="stylesheet" href="reveal/lib/css/zenburn.css">
+</head>
+<body>
+<div id="container">
+<div class="reveal">
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">	
+
+    <section>
+        <h2>Wakanda Training</h2>
+		<br/>
+        <p><strong>Day 1 – Intro to Wakanda Server-Side</strong></p>
+        <br/>
+
+<!--        <p>Dave Terry</p>-->
+
+<!--        <p>Pacific Data Management, Inc.</p>-->
+
+    </section>
+
+    <section>
+        <h2>Wakanda Overview</h2>
+        <ul>
+            <li>Wakanda is a development and deployment<br/>environment for data-driven, browser-based<br/>applications</li>
+        </ul>
+    </section>   
+
+	<section>
+        <h2>Wakanda has three parts</h2>
+        <ul>
+            <li>Wakanda Server</li>
+            <li>Wakanda Ajax Framework (WAF)</li>
+            <li>Wakanda Studio</li>
+        </ul>
+    </section>
+
+	<section>
+        <h2>Wakanda Server</h2>
+        <ul>
+            <li>Wakanda Server is a faceless Data, Web, and REST server <br/>with a fully threaded JavaScript environment.</li>
+        </ul>
+    </section>
+
+	<section>
+        <h2>Wakanda Server as a Data Server</h2>
+        <ul>
+            <li>Built into Wakanda Server</li>
+            <li>NoSQL but still relational</li>
+            <li>Entity/Object based - Data is returned as JavaScript objects</li>
+        </ul>
+    </section>
+
+	<section>
+        <h2>Wakanda Server as a Web Server</h2>
+        <ul>
+            <li>Built-in admin pages</li>
+            <li>Smart web page distribution (desktop, tablet, smartphone)</li>
+            <li>Automatic session management</li>
+        </ul>
+    </section>
+
+
+	<section>
+        <h2>Wakanda Server as a REST Server</h2>
+        <ul>
+            <li>Industry standard HTTP-based data transfer architecture</li>
+            <li>Used by Wakanda Ajax Framework to get and set data in Wakanda Server</li>
+            <li>Can be used by other browser frameworks to manage data</li>
+        </ul>
+    </section>
+
+
+	<section>
+        <h2>Wakanda Server includes:</h2>
+        <ul>
+            <li>A fully threaded, very fast javascript environment</li>
+            <li>A complete scriptable backup system</li>
+            <li>A host of server-side services and resources</li>
+        </ul>
+    </section>
+
+	<section>
+        <h2>Wakanda Server runs on</h2>
+        <ul>
+            <li>Windows</li>
+            <li>Mac</li>
+            <li>Linux</li>
+        </ul>
+    </section>
+
+
+	<section>
+        <h2>Wakanda Ajax Framework</h2>
+        <ul>
+            <li>Multiple layers of access to Wakanda Server</li>
+            <li>Provides easy-to-use data retrieval and update</li>
+            <li>Implements a host of Wakanda specific widgets that are data aware</li>
+            <li>Can be used in conjunction with other frameworks</li>
+        </ul>
+    </section>
+
+	<section>
+        <h2>WAF Requirements</h2>
+        <ul>
+            <li>HTML 5</li>
+            <li>CSS 3</li>
+            <li>Javascript</li>
+			<li class="fragment"><br/>No browser plug-in needed!</li>
+
+        </ul>
+    </section>
+
+
+	<section>
+        <h2>WAF Supported Browsers</h2>
+        <ul>
+            <li>IE 9</li>
+            <li>Chrome 6</li>
+            <li>Safari 5</li>
+            <li>Firefox 3.6</li>
+        </ul>
+    </section>
+ 
+	<section>
+        <h2>Wakanda Studio</h2>
+        <ul>
+            <li>Wakanda Studio is an IDE for creating <br/>Wakanda applications</li>
+
+			<li class="fragment"><br/>Wakanda Studio runs on Mac OSX 10.6 and <br/> Windows Vista, 7 or 8 (32 or 64 bit)</li>
+
+        </ul>
+    </section>
+
+	<section>
+        <h2>Wakanda Studio Editors/Designers</h2>
+        <ul>
+            <li>Solution Explorer</li>
+            <li>Datastore Model Designer</li>
+            <li>GUI Designer (web page designer)</li>
+            <li>Code editor</li>
+            <li>Users and Groups editor (the Directory)</li>
+            <li>Solution and project settings editor</li>
+      </ul>
+    </section>
+
+	
+</div>	
+</div>
+</div>
+<script type="text/javascript" src="reveal/lib/js/head.min.js"></script>
+<script type="text/javascript" src="reveal/js/reveal.js"></script>
+<script type="text/javascript">
+Reveal.initialize({
+	controls: true,
+	progress: true,
+	history: true,
+	center: true,
+	overview: true,
+
+	theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+	transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/fade/none
+
+	// Optional libraries used to extend on reveal.js
+	dependencies: [
+		{ src: 'reveal/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+		{ src: 'reveal/plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+		{ src: 'reveal/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+		{ src: 'reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+		{ src: 'reveal/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+		{ src: 'reveal/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+	//	{ src: 'reveal/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+	]
+});
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+   "http://www.w3.org/TR/html4/loose.dtd">
+
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Wakanda Training Day 1</title>
+	<meta name="generator" content="TextMate http://macromates.com/">
+	<meta name="author" content="David Robbins">
+	<!-- Date: 2013-01-25 -->
+	
+	<link rel="stylesheet" href="reveal/css/reveal.css">
+	<link rel="stylesheet" href="reveal/css/theme/wak.css" id="theme">
+
+	<!-- For syntax highlighting -->
+	<link rel="stylesheet" href="reveal/lib/css/zenburn.css">
+</head>
+<body>
+<div id="container">
+<div class="reveal">
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">	
+    <section>
+        <h2>Dependent Relation Attribute Rules</h2>
+			 <ul>
+            <li>If the path includes <b>ONLY</b> N to 1 relations, </br>the attribute results in an entity or null</li>
+            <li>If the path includes <b>ANY</b> one 1 to N relations, </br>the attribute results in an entity collection</li>
+			 </ul>
+    </section>
+
+
+    
+
+
+
+
+	
+
+	
+</div>	
+</div>
+</div>
+<script type="text/javascript" src="reveal/lib/js/head.min.js"></script>
+<script type="text/javascript" src="reveal/js/reveal.js"></script>
+<script type="text/javascript">
+Reveal.initialize({
+	controls: true,
+	progress: true,
+	history: true,
+	center: true,
+	overview: true,
+
+	theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+	transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/fade/none
+
+	// Optional libraries used to extend on reveal.js
+	dependencies: [
+		{ src: 'reveal/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+		{ src: 'reveal/plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+		{ src: 'reveal/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+		{ src: 'reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+		{ src: 'reveal/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+		{ src: 'reveal/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+	//	{ src: 'reveal/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+	]
+});
+
+
+</script>
+</body>
+</html>

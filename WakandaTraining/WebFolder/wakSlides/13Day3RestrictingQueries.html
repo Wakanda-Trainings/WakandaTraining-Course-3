@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+   "http://www.w3.org/TR/html4/loose.dtd">
+
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Wakanda Training Day 1</title>
+	<meta name="generator" content="TextMate http://macromates.com/">
+	<meta name="author" content="David Robbins">
+	<!-- Date: 2013-01-25 -->
+	
+	<link rel="stylesheet" href="reveal/css/reveal.css">
+	<link rel="stylesheet" href="reveal/css/theme/wak.css" id="theme">
+
+	<!-- For syntax highlighting -->
+	<link rel="stylesheet" href="reveal/lib/css/zenburn.css">
+</head>
+<body>
+<div id="container">
+<div class="reveal">
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">	
+
+	 <section>
+        <h2>Restricting Queries</h2>
+
+       <ul>
+            <li>Controls which entities can be accessed from a dataclass</li>
+            <li>Applies to all mechanisms that access entities</li>
+            <li>Can be implemented in one of two ways</li>
+	        <ul>
+	            <li>Restricting Query String</li>
+	            <li>On Restricting Query Event</li>
+	        </ul>
+
+       </ul>
+    </section>   
+
+	<section>
+        <h2>Restricting Query String</h2>
+
+       <ul>
+            <li>Property of the dataclass</li>
+            <li>Same syntax as a Wakanda query string</li>
+            <li>Most appropriate use is in derived dataclasses</li>
+            <li>May use a few Wakanda maintained values</li>
+	        <ul>
+	            <li>:$userID - ID of the authenticated user</li>
+	            <li>:$userName - Login name of the authenticated user</li>
+	        </ul>
+            <li>Can also use query string javascript syntax!</li>
+       </ul>
+    </section>   
+
+
+	<section>
+        <h2>On Restricting Query Event</h2>
+
+       <ul>
+            <li>Allows code to restrict entity access</li>
+            <li>Much more flexible than a Restricting Query String</li>
+            <li>Goal is to return an entity collection</li>
+       </ul>
+    </section>   
+
+	
+</div>	
+</div>
+</div>
+<script type="text/javascript" src="reveal/lib/js/head.min.js"></script>
+<script type="text/javascript" src="reveal/js/reveal.js"></script>
+<script type="text/javascript">
+Reveal.initialize({
+	controls: true,
+	progress: true,
+	history: true,
+	center: true,
+	overview: true,
+
+	theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+	transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/fade/none
+
+	// Optional libraries used to extend on reveal.js
+	dependencies: [
+		{ src: 'reveal/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+		{ src: 'reveal/plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+		{ src: 'reveal/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+		{ src: 'reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+		{ src: 'reveal/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+		{ src: 'reveal/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+	//	{ src: 'reveal/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+	]
+});
+
+
+</script>
+</body>
+</html>

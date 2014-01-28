@@ -1,0 +1,121 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+   "http://www.w3.org/TR/html4/loose.dtd">
+
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Wakanda Training Day 1</title>
+	<meta name="generator" content="TextMate http://macromates.com/">
+	<meta name="author" content="David Robbins">
+	<!-- Date: 2013-01-25 -->
+	
+	<link rel="stylesheet" href="reveal/css/reveal.css">
+	<link rel="stylesheet" href="reveal/css/theme/wak.css" id="theme">
+
+	<!-- For syntax highlighting -->
+	<link rel="stylesheet" href="reveal/lib/css/zenburn.css">
+</head>
+<body>
+<div id="container">
+<div class="reveal">
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">	
+
+    <section>
+        <h2>Wakanda Training Day 3 - Security</h2>
+		<br/>
+<!--        <p><strong>Security</strong></p>-->
+        <p>How to keep bad things from happening</p>
+<!--       <br/>-->
+<!--        <p><strong>Advanced Data Model Concepts</strong></p>-->
+<!--             <p>Restricting Queries and Inheritance</p>-->
+<!--       <br/>-->
+
+<!--        <p>Dave Terry</p>-->
+
+<!--        <p>Pacific Data Management, Inc.</p>-->
+
+    </section>
+
+    <section>
+        <h2>Wakanda Security - Know Your Options</h2>
+
+       <ul>
+            <li>Scope (Public vs. Public on Server)</li>
+          	<li>Users and authentication (who is the user?)</li>
+            <li>Groups and permissions (what can/can't the user do?)</li>
+            <li>Restricting Queries (which entities can the user access?)</li>
+            <li>Class Methods</li>
+            <li>Calculated attributes</li>
+            <li>Dataclass events</li>
+            <li>Session management</li>
+            <li>Inheritance</li>
+            <li>Transactions</li>
+            <li>HTTPS</li>
+       </ul>
+    </section>   
+
+	<section>
+        <h2>Wakanda Security Suggestions</h2>
+        <ul>
+            <li>Design your model so that data and functions that should </br><b>never</b> be accessible to the browser are <b>only</b> available to </br>code running on Wakanda Server</li>
+            <li>Place as much business logic as possible in the </br>code that is only accessible on the server</li>
+            <li>Use authentication and permissions to assure that </br>users can only interact in a proper way with dataclasses </br>and methods</li>
+            <li>Wrap grouped modifications into class methods with </br>parameters so that everything can be saved in one </br>transaction</li>
+        </ul>
+    </section>
+
+
+	<section>
+        <h2>Wakanda Security Suggestions</h2>
+        <ul>
+            <li>Use restricting queries to constrain access to entities </br>when needed</li>
+            <li>Don’t assume that attributes you provide for ‘display only’ </br>won’t be altered</li>
+            <li>Construct your client-side code so that it supports and mirrors </br>the server-side restrictions but don’t count on client-side </br>code to block a user action</li>
+            <li>Reference your pages through HTTPS so that communication with the </br>server is encrypted</li>
+        </ul>
+    </section>
+
+	<section>
+        <h2>Scope</h2>
+        <ul>
+            <li>Allows you to restrict portions of your data model from client-side access</li>
+            <li>Cannot be changed at run time so very secure</li>
+            <li>Permissions oblivious - doesn't care about the current user's permissions</li>
+            <li>Can be applied to attributes, methods and entire dataclasses</li>
+        </ul>
+    </section>
+
+	
+</div>	
+</div>
+</div>
+<script type="text/javascript" src="reveal/lib/js/head.min.js"></script>
+<script type="text/javascript" src="reveal/js/reveal.js"></script>
+<script type="text/javascript">
+Reveal.initialize({
+	controls: true,
+	progress: true,
+	history: true,
+	center: true,
+	overview: true,
+
+	theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+	transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/fade/none
+
+	// Optional libraries used to extend on reveal.js
+	dependencies: [
+		{ src: 'reveal/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+		{ src: 'reveal/plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+		{ src: 'reveal/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+		{ src: 'reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+		{ src: 'reveal/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+		{ src: 'reveal/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+	//	{ src: 'reveal/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+	]
+});
+
+
+</script>
+</body>
+</html>

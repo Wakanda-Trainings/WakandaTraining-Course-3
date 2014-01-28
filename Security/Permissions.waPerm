@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?><permissions>
+	<allow action="execute" groupName="Worker" groupID="A56EE97D6ABB374283AC2BB47D8DFD9D" resource="Model.Employee.getTime" temporaryForcePermissions="false" type="method"/>
+	<allow action="execute" groupName="Worker" groupID="A56EE97D6ABB374283AC2BB47D8DFD9D" resource="Model.Employee.makeRaises" temporaryForcePermissions="false" type="method"/>
+	<allow action="promote" groupName="Internal" groupID="6BA8264F9A0FE7438593EFDC7B2EC67A" resource="Model.Employee.makeRaises" temporaryForcePermissions="false" type="method"/>
+	<allow action="read" groupName="Worker" groupID="A56EE97D6ABB374283AC2BB47D8DFD9D" resource="Model.Employee" temporaryForcePermissions="false" type="dataClass"/>
+	<allow action="remove" groupName="Internal" groupID="6BA8264F9A0FE7438593EFDC7B2EC67A" resource="Model.Employee" temporaryForcePermissions="false" type="dataClass"/>
+	<allow action="execute" groupName="Worker" groupID="A56EE97D6ABB374283AC2BB47D8DFD9D" resource="Model.Employee.addToCart" temporaryForcePermissions="false" type="method"/>
+	<allow action="promote" groupName="Internal" groupID="6BA8264F9A0FE7438593EFDC7B2EC67A" resource="Model.Employee.addToCart" temporaryForcePermissions="false" type="method"/>
+	<allow action="update" groupName="Internal" groupID="6BA8264F9A0FE7438593EFDC7B2EC67A" resource="Model.Employee" temporaryForcePermissions="false" type="dataClass"/>
+	<allow action="read" groupName="Worker" groupID="A56EE97D6ABB374283AC2BB47D8DFD9D" resource="Model.Employee.firstName" temporaryForcePermissions="false" type="attribute"/>
+	<allow action="read" groupName="Worker" groupID="A56EE97D6ABB374283AC2BB47D8DFD9D" resource="Model.Employee.lastName" temporaryForcePermissions="false" type="attribute"/>
+</permissions>

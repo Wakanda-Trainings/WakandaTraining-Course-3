@@ -1,0 +1,128 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+   "http://www.w3.org/TR/html4/loose.dtd">
+
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Wakanda Training Day 1</title>
+	<meta name="generator" content="TextMate http://macromates.com/">
+	<meta name="author" content="David Robbins">
+	<!-- Date: 2013-01-25 -->
+	
+	<link rel="stylesheet" href="reveal/css/reveal.css">
+	<link rel="stylesheet" href="reveal/css/theme/wak.css" id="theme">
+
+	<!-- For syntax highlighting -->
+	<link rel="stylesheet" href="reveal/lib/css/zenburn.css">
+</head>
+<body>
+<div id="container">
+<div class="reveal">
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">	
+
+    <section>
+        <h2>Dataclass and Attribute Events</h2>
+        <ul>
+            <li>- Execute when certain conditions are met</li>
+            <li class="fragment">- You do not call them directly</li>
+            <li class="fragment">- Most are available for both dataclass and attribute</li>
+            <li class="fragment">- In all cases, the keyword <b>this</b> refers to the entity</li>
+            <li class="fragment">- Attribute level events receive a parameter that is the name of the attribute</li>
+            <li class="fragment">- Code in an event can cause another event to execute but not the same event. </br> This avoids infinite loops.</li>
+        </ul>
+
+    </section>
+
+    <section>
+        <h2>Event Types</h2>
+        <ul></br><b>On Init</b> (dataclass and attribute) - common
+			<li>- Executes when a new entity comes into existance</li>
+			<li>- Runs AFTER any auto-sequence or auto-generate properties are applied</li>
+            <li>- Runs BEFORE the entity is delivered to the creating code</li>
+		</ul>
+
+        <ul class="fragment"></br><b>On Load</b> (dataclass) - uncommon
+			<li>- Executes when an existing entity is loaded from the datastore</li>
+            <li>- Runs BEFORE the entity is delivered to the accessing code</li>
+		</ul>
+          
+        <ul class="fragment"></br><b>On Load</b> (attribute) - uncommon
+			<li>- Executes the first time an attribute value is accessed or assigned</li>
+			<li>- Runs for both new AND existing entities</li>
+            <li>- Runs BEFORE the attribute's value is delivered to the accessing code</li>
+		</ul>
+   </section>
+
+    <section>
+        <h2>Event Types (continued)</h2>
+        <ul></br><b>On Set</b> (attribute only) - modestly common
+			<li>- Executes when a value is assigned to an entity's attribute</li>
+			<li>- Runs AFTER the value has already been assigned</li>
+		</ul>
+
+        <ul class="fragment"></br><b>On Validate</b> (dataclass and attribute) - very common
+			<li>- Executes when an entity is being validated or saved</li>
+			<li>- Runs BEFORE the On Save event if an entity is being saved</li>
+            <li>- Can reject the validation by returning an object</li>
+            <li>- Used to check attributes values and return what is wrong if need be </li>
+		</ul>
+          
+        <ul class="fragment"></br><b>On Save</b> (dataclass and attribute) - very common
+			<li>- Executes when an entity is being saved</li>
+			<li>- Runs AFTER the On Validate event</li>
+            <li>- Can reject the validation by returning an object</li>
+            <li>- Used to complete any 'busy work' needed by the application</li>
+		</ul>
+   </section>
+
+    <section>
+        <h2>Event Types (continued)</h2>
+        <ul></br><b>On Remove</b> (dataclass and attribute) - modestly common
+			<li>- Executes when an entity is being removed</li>
+			<li>- Runs BEFORE the entity is deleted</li>
+            <li>- Can reject the deletion by returning an object</li>
+		</ul>
+
+        <ul class="fragment"></br><b>On Restricting Query</b> (dataclass only) - very common
+			<li>- Executes when code attempts to access entities from the dataclass</li>
+			<li>- Returns an entity collection of the dataclass</li>
+            <li>- Restricts which entities can be accessed from the dataclass</li>
+            <li>- Used in conjunction with security and dataclass inheritance</li>
+            <li>- Will be explained and demonstrated in Day 3 training</li>
+		</ul>          
+   </section>
+
+    	
+</div>	
+</div>
+</div>
+<script type="text/javascript" src="reveal/lib/js/head.min.js"></script>
+<script type="text/javascript" src="reveal/js/reveal.js"></script>
+<script type="text/javascript">
+Reveal.initialize({
+	controls: true,
+	progress: true,
+	history: true,
+	center: true,
+	overview: true,
+
+	theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+	transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/fade/none
+
+	// Optional libraries used to extend on reveal.js
+	dependencies: [
+		{ src: 'reveal/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+		{ src: 'reveal/plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+		{ src: 'reveal/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+		{ src: 'reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+		{ src: 'reveal/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+		{ src: 'reveal/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+	//	{ src: 'reveal/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+	]
+});
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,185 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+   "http://www.w3.org/TR/html4/loose.dtd">
+
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Wakanda Training Day 1</title>
+	<meta name="generator" content="TextMate http://macromates.com/">
+	<meta name="author" content="David Robbins">
+	<!-- Date: 2013-01-25 -->
+	
+	<link rel="stylesheet" href="reveal/css/reveal.css">
+	<link rel="stylesheet" href="reveal/css/theme/wak.css" id="theme">
+
+	<!-- For syntax highlighting -->
+	<link rel="stylesheet" href="reveal/lib/css/zenburn.css">
+</head>
+<body>
+<div id="container">
+<div class="reveal">
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">	
+
+   
+
+    <section>
+        <h2>Wakanda Terminology</h2>
+        <ul class="fragment">
+            <li><i><b>Solution</b></i></li>
+			 <ul>
+	            <li>Top level Wakanda item</li>
+	            <li>Can hold multiple projects</li>
+	            <li>Contains the directory which holds users and groups</li>
+			</ul>
+        </ul>
+
+       <ul class="fragment">
+            <li></br><i><b>Project</b></i></li>
+			 <ul>
+	            <li>Design-time term/concept representing one application</li>
+	            <li>Contains one Datastore Model</li>
+	            <li>Project's folder holds multiple files</li>
+			</ul>
+        </ul>
+		<ul class="fragment">
+            <li></br><i><b>Application</b></i></li>
+			 <ul>
+	            <li>Runtime representation of a Wakanda project</li>
+			</ul>
+        </ul>
+    </section>
+
+
+    <section>
+        <h2>Wakanda Terminology</h2>
+        <ul>
+            <li><i><b>Datastore Model</b></i></li>
+			 <ul>
+	            <li>Project specific definition of data</li>
+	            <li>Describes dataclasses of the datastore, their attributes</br>and other related items</li>
+			</ul>
+        </ul>
+
+       <ul class="fragment">
+            <li></br><i><b>Datastore</b></i></li>
+			 <ul>
+	            <li>Run-time term for an application's server-side bundle of </br>data and related code</li>
+			</ul>
+        </ul>
+
+
+       <ul class="fragment">
+            <li></br><i><b>Datastore Class</b></i></li>
+			 <ul>
+	            <li>Defines one type of data in the datastore model</li>
+	            <li>Composed of datastore class attributes, methods and events</li>
+	            <li>Often referred to as just <i><b>dataclass</b></i></li>
+			</ul>
+        </ul>
+
+    </section>
+
+
+
+    <section>
+        <h2>Wakanda Terminology</h2>
+        <ul>
+            <li><i><b>Datastore Class Attribute</b></i></li>
+			 <ul>
+	            <li>Smallest portion of data in a dataclass</li>
+	            <li>Often referred to as just <i><b>attribute</b></i></li>
+			</ul>
+        </ul>
+
+       <ul class="fragment">
+            <li></br><i><b>Datastore Class Method</b></i></li>
+			 <ul>
+	            <li>A portion of JavaScript code associated with a dataclass</li>
+	            <li>Often referred to as a <i><b>class method</b></i></li>
+			</ul>
+        </ul>
+
+
+       <ul class="fragment">
+            <li></br><i><b>Datastore Entity</b></i></li>
+			 <ul>
+	            <li>Similar to a record, one instance of information in a dataclass</li>
+	            <li>When used in code, a JavaScript object</li>
+	            <li>Commonly referred to as an <i><b>entity</b></i></li>
+			</ul>
+        </ul>
+
+    </section>
+
+ 	<section>
+        <h2>Wakanda Terminology</h2>
+        <ul>
+            <li><i><b>Entity Collection</b></i></li>
+			 <ul>
+	            <li>A bundle of from 0 to <i>N</i> entities</li>
+	            <li>When used in code, similar to a JavaScript array</li>
+	            <li>May be ordered or un-ordered</li>
+				 <ul>
+	            	<li>In an <b>un-ordered</b> collection each entity can exist only once</li>
+	            	<li>In an <b>ordered</b> collection each entity may appear more than once</li>
+				</ul>
+
+			</ul>
+        </ul>
+
+    </section>
+
+
+ 	<section>
+        <h2>Wakanda Concept</h2>
+        <ul>
+            <li><i><b>Server-side vs. Browser-side</b></i></li>
+			 <ul>
+	            <li>Code in the model runs on Wakanda Server</li>
+	            <li>Code incorporated into a web page runs on the browser</li>
+				<li class="fragment"></br>Unless otherwise noted, all code shown in Day 1 of </br>Wakanda Training runs under Wakanda Server</li>
+
+			</ul>
+        </ul>
+
+    </section>
+
+
+
+
+	
+
+	
+</div>	
+</div>
+</div>
+<script type="text/javascript" src="reveal/lib/js/head.min.js"></script>
+<script type="text/javascript" src="reveal/js/reveal.js"></script>
+<script type="text/javascript">
+Reveal.initialize({
+	controls: true,
+	progress: true,
+	history: true,
+	center: true,
+	overview: true,
+
+	theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+	transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/fade/none
+
+	// Optional libraries used to extend on reveal.js
+	dependencies: [
+		{ src: 'reveal/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+		{ src: 'reveal/plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+		{ src: 'reveal/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+		{ src: 'reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+		{ src: 'reveal/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+		{ src: 'reveal/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+	//	{ src: 'reveal/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+	]
+});
+
+
+</script>
+</body>
+</html>

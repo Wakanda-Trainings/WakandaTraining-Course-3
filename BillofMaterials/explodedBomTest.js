@@ -1,0 +1,1 @@
+﻿ds.Product.find('code = S164').explodedBOM();

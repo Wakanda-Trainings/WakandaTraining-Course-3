@@ -1,0 +1,52 @@
+﻿.displayHTML
+ {
+      background:#f0f0f0;
+      height:100%;
+      width:100%;
+ }
+                                               
+ .prop
+ {
+      margin-top: 0px;
+      margin-bottom: 1px;
+      margin-left: 2px;
+      margin-right: 2px;
+      cursor:pointer;
+      -moz-user-select:none;
+
+  }
+
+  .subarray
+  {
+      margin-top: 0px;
+      margin-bottom: 0px;
+      margin-left: 2px;
+      margin-right: 2px;
+  }
+
+  .subelem
+  {
+      margin-top: 1px;
+      margin-bottom: 1px;
+      margin-left: 2px;
+      margin-right: 2px;
+   }
+
+   .arrayelem
+   {
+      margin-top: 0px;
+      margin-bottom: 0px;
+      margin-left: 2px;
+      margin-right: 2px;
+   }
+
+   .subobject
+   {
+      border-width: 1px;
+      border-style: solid;
+      border-color: blue;
+      margin-top: 1px;
+      margin-bottom: 1px;
+      margin-left: 2px;
+      margin-right: 2px;
+    }

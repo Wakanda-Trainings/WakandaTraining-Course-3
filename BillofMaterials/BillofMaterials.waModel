@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="UTF-8"?><EntityModelCatalog>
+
+<dbInfo name="BillofMaterials" uuid="DEB2380315EE8E47AF7052ECFC4FADBC"/>
+
+<extraProperties ____objectunic="true" version="1">
+
+	<model ____objectunic="true">
+
+		<relationCurve ____objectunic="true" run="true" mode="1"/>
+</model>
+
+	<classes ____objectunic="true">
+
+		<Component ____objectunic="true" panelColor="#D8D8D8">
+
+			<panel ____objectunic="true" isOpen="true" pathVisible="true">
+
+				<position ____objectunic="true" X="488" Y="195"/>
+</panel>
+</Component>
+
+		<Product ____objectunic="true" panelColor="#8DB3E2" methVisible="true">
+
+			<panel ____objectunic="true" isOpen="true" pathVisible="true">
+
+				<position ____objectunic="true" X="96" Y="63"/>
+</panel>
+</Product>
+</classes>
+</extraProperties>
+
+<dataClasses name="Component" className="Component" collectionName="Components" scope="public" uuid="5B9F97F837C5724D977DDA01012D14E6">
+
+	<extraProperties ____objectunic="true" panelColor="#D8D8D8">
+
+		<panel ____objectunic="true" isOpen="true" pathVisible="true">
+
+			<position ____objectunic="true" X="374" Y="32"/>
+</panel>
+</extraProperties>
+
+	<attributes name="ID" kind="storage" scope="public" uuid="A5833B126FA57C46A59F89F274FEDB5B" unique="true" autosequence="true" type="long" primKey="true"/>
+
+	<attributes name="quantity" kind="storage" scope="public" uuid="5B8A0D20D5CA4946AB5DDE4F3AAC153C" type="number"/>
+
+	<attributes name="extended" kind="calculated" scope="public" type="number" scriptKind="javascript">
+
+		<onGet from="guidedModel.Component.extended.onGet"/>
+
+	</attributes>
+
+	<attributes name="partOf" kind="relatedEntity" scope="public" uuid="589391FCEDE0004F91657E5289ADD82E" type="Product" path="Product"/>
+
+	<attributes name="componentProduct" kind="relatedEntity" scope="public" uuid="3F65E43E6052324E88F7B8CB6C5D6D96" type="Product" path="Product"/>
+
+	<attributes name="productDepth" kind="alias" scope="public" type="number" path="componentProduct.depth"/>
+
+	<attributes name="maxCanMake" kind="calculated" scope="public" type="number" scriptKind="javascript">
+
+		<onGet from="guidedModel.Component.maxCanMake.onGet"/>
+
+	</attributes>
+
+</dataClasses>
+
+<dataClasses name="Product" className="Product" collectionName="Products" scope="public" uuid="DA924DFEA449294A8A1B8A43B25B070C">
+
+	<extraProperties ____objectunic="true" panelColor="#8DB3E2" methVisible="true">
+
+		<panel ____objectunic="true" isOpen="true" pathVisible="true">
+
+			<position ____objectunic="true" X="38" Y="27"/>
+</panel>
+</extraProperties>
+
+	<attributes name="ID" kind="storage" scope="public" uuid="197392CB9F4E5745BCE73996BE0B617F" unique="true" autosequence="true" type="long" primKey="true"/>
+
+	<attributes name="code" kind="storage" scope="public" uuid="BCE817C62D7C4E48ACF7568A9A7DFB27" type="string"/>
+
+	<attributes name="name" kind="storage" scope="public" uuid="A54F4A25BC351542BB9BB12EE129B3E7" type="string"/>
+
+	<attributes name="isAssembly" kind="calculated" scope="public" type="bool" scriptKind="javascript">
+
+		<onGet from="guidedModel.Product.isAssembly.onGet"/>
+
+	</attributes>
+
+	<attributes name="isUsed" kind="calculated" scope="public" type="bool" scriptKind="javascript">
+
+		<onGet from="guidedModel.Product.isUsed.onGet"/>
+
+	</attributes>
+
+	<attributes name="depth" kind="calculated" scope="public" type="number" scriptKind="javascript">
+
+		<onGet from="guidedModel.Product.depth.onGet"/>
+
+	</attributes>
+
+	<attributes name="buyCost" kind="storage" scope="public" uuid="CDAAA86E0AF65043B03F4884D3C8301D" type="number"/>
+
+	<attributes name="costOfGoods" kind="calculated" scope="public" type="number" scriptKind="javascript">
+
+		<onGet from="guidedModel.Product.costOfGoods.onGet"/>
+
+	</attributes>
+
+	<attributes name="composedOf" kind="relatedEntities" scope="public" type="Components" reversePath="true" path="partOf"/>
+
+	<attributes name="usedIn" kind="relatedEntities" scope="public" type="Components" reversePath="true" path="componentProduct"/>
+
+	<attributes name="quantityOnHand" kind="storage" scope="public" uuid="48190762C8C24D4AAEF9F2C9B719CDF7" type="number"/>
+
+	<attributes name="quantityCanMake" kind="calculated" scope="public" type="number" scriptKind="javascript">
+
+		<onGet from="guidedModel.Product.quantityCanMake.onGet"/>
+
+	</attributes>
+
+	<attributes name="quantityTotal" kind="calculated" scope="public" type="number" scriptKind="javascript">
+
+		<onGet from="guidedModel.Product.quantityTotal.onGet"/>
+
+	</attributes>
+
+	<attributes name="minimumQuantity" kind="storage" scope="public" uuid="B0FD0E929EF207419B2FF0E2D9501ED8" type="number"/>
+
+	<methods name="buildAssembly" applyTo="entity" scope="publicOnServer" from="guidedModel.Product.entityMethods.buildAssembly"/>
+
+	<methods name="buildProduct" applyTo="entity" scope="public" from="guidedModel.Product.entityMethods.buildProduct"/>
+
+	<methods name="explodedBOM" applyTo="entity" scope="public" from="guidedModel.Product.entityMethods.explodedBOM"/>
+
+	<methods name="explodedUsage" applyTo="entity" scope="public" from="guidedModel.Product.entityMethods.explodedUsage"/>
+
+	<methods name="importProducts" applyTo="dataClass" scope="publicOnServer" from="guidedModel.Product.methods.importProducts"/>
+
+	<methods name="makeParts" applyTo="dataClass" scope="publicOnServer" from="guidedModel.Product.methods.makeParts"/>
+
+</dataClasses>
+</EntityModelCatalog>

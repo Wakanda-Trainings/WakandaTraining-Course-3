@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html><html>
+    <head>
+        <title>index</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="generator" content="Wakanda GUIDesigner"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+    	<meta name="wakanda-version" content="6 build 6.147688"/>
+		<meta name="wakanda-build" content="6.147688"/>
+		<meta name="WAF.config.loadCSS" id="waf-interface-css" content="styles/index.css"/>
+		<meta name="WAF.config.loadCSS" id="waf-project-css" content="/application.css"/>
+
+		<meta name="WAF.config.datasources" data-type="dataSource" data-source-type="dataClass" data-source="Employee" data-lib="WAF" data-id="employee" data-dataType="string" data-autoLoad="true" content="employee"/><meta name="WAF.config.loadJS" id="waf-script" content="scripts/index.js"/>
+
+		<meta name="WAF.packageJson"/>
+
+		<meta name="WAF.catalog" content="Employee"/>
+</head>
+    <body id="waf-body" data-workspace-width="0" data-workspace-orientation="portrait" data-workspace-height="0" data-viewport-width="device-width" data-viewport-minimum-scale="1.0" data-viewport-maximum-scale="1.0" data-viewport-initial-scale="1.0" data-type="document" data-theme="default" data-platform="desktop" data-lib="WAF" data-group="[]" data-apple-meta-tags-status-bar="default" data-entire-model="false" style="visibility:hidden;bottom:;right:;">
+    <div id="login1" data-user-label="User: " data-user-display="Signed in as " data-type="login" data-password-label="Password: " data-logout-action="Logout" data-login-title="Login Dialog" data-login-button="Login" data-login-action="Login" data-lib="WAF" data-constraint-top="true" data-constraint-right="false" data-constraint-left="true" class="waf-widget waf-login         default inherited   waf-login-level-0 waf-level-0"></div>	<div id="container1" data-type="container" data-lib="WAF" data-label-position="top" data-label="" data-hideonload="true" data-constraint-top="true" data-constraint-left="true" class="waf-widget waf-container     waf-container-level-0 waf-level-0">
+	 	<div id="dataGrid1" data-type="dataGrid" data-selection-mode="single" data-lib="WAF" data-label-position="top" data-label="" data-footer-text="item(s)" data-display-error="true" data-constraint-top="true" data-constraint-right="false" data-constraint-left="true" data-constraint-bottom="false" data-column="[{'sourceAttID':'fullName','colID':'fullName','width':'209','title':'Name'},{'sourceAttID':'title','colID':'title','width':'264','title':'Title'},{'sourceAttID':'relation','colID':'relation','width':'150','title':'Relation'},{'sourceAttID':'salaryCalc','colID':'salaryCalc','width':'174','title':'Salary'}]" data-binding="employee" class="waf-widget waf-dataGrid  "></div>
+ 		<input type="text" id="textField1" data-type="textField" data-readOnly="false" data-password="false" data-multiline="false" data-lib="WAF" data-label-position="left" data-label="Salary" data-datapicker-on="false" data-datapicker-icon-only="false" data-constraint-top="true" data-constraint-right="false" data-constraint-left="true" data-constraint-bottom="false" data-binding="employee.salaryCalc" class="waf-widget waf-textField  "/>
+ 		<label id="label1" for="textField1" data-valign="middle" data-type="label" data-margin="5" data-lib="WAF" data-constraint-top="true" data-constraint-left="true" class="waf-widget waf-label waf-label-textField">Salary</label>
+ 		<input value="[employee.fullName]" type="text" id="textField2" data-type="textField" data-readOnly="false" data-password="false" data-multiline="false" data-lib="WAF" data-label-position="left" data-label="Name" data-datapicker-on="true" data-datapicker-icon-only="false" data-constraint-top="true" data-constraint-right="false" data-constraint-left="true" data-constraint-bottom="false" data-binding="employee.fullName" class="waf-widget waf-textField  "/>
+ 		<label id="label2" for="textField2" data-valign="middle" data-type="label" data-margin="5" data-lib="WAF" data-constraint-top="true" data-constraint-left="true" class="waf-widget waf-label waf-label-textField">Name</label>
+ 		<div id="image1" data-type="image" data-target="_blank" data-lib="WAF" data-label-position="left" data-label="" data-fit="4" data-constraint-top="true" data-constraint-right="false" data-constraint-left="true" data-constraint-bottom="false" data-binding="employee.photo" class="waf-widget waf-image  "></div>
+ 		<button id="button1" data-type="button" data-target="_blank" data-lib="WAF" data-constraint-top="true" data-constraint-right="false" data-constraint-left="true" data-constraint-bottom="false" data-binding="employee" data-action="save" class="waf-widget waf-button  "></button>
+ 	</div>
+		<script type="text/javascript" src="/waLib/WAF/Loader.js"></script>
+	</body>
+</html>

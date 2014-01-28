@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html><html>
+    <head>
+        <title>BOM</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="generator" content="Wakanda GUIDesigner"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+    	<meta name="wakanda-version" content="Dev build 0.126084"/>
+		<meta name="wakanda-build" content="0.126084"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=1"/>
+		<meta name="apple-mobile-web-app-capable" content="yes"/>
+		
+		<meta name="WAF.config.datasources" data-type="dataSource" data-source-type="dataClass" data-source="Product" data-lib="WAF" data-id="product" data-dataType="string" data-autoLoad="true" content="product"/>
+		
+		<meta name="WAF.config.loadCSS" id="waf-palette" content="/walib/WAF/widget/palette/css/widget-palette-default.css"/>
+		<meta name="WAF.config.datasources" data-type="dataSource" data-source-type="array" data-source="arrayExploded" data-lib="WAF" data-id="arrayExploded" data-dataType="string" data-autoLoad="true" data-attributes="label:string,value:string" content="arrayExploded"/>
+		<meta name="WAF.config.loadCSS" id="waf-interface-css" content="styles/BOM.css"/>
+		<meta name="WAF.config.loadCSS" content="/styles/subobjects.css"/>
+<meta name="WAF.config.loadJS" id="waf-script" content="scripts/BOM.js"/>
+		<meta name="WAF.config.loadCSS" id="waf-project-css" content="/application.css"/>
+</head>
+    <body id="waf-body" data-viewport-width="device-width" data-viewport-minimum-scale="1.0" data-viewport-maximum-scale="1.0" data-viewport-initial-scale="1.0" data-type="document" data-theme="default" data-rpc-validation="false" data-rpc-namespace="rpc" data-rpc-activate="false" data-platform="desktop" data-lib="WAF" data-group="[]" data-apple-meta-tags-status-bar="default" class="default" style="visibility:hidden;">
+		<div id="container2" data-type="container" data-lib="WAF" data-hideSplitter="true" data-constraint-top="true" data-constraint-right="true" data-constraint-left="true" data-constraint-bottom="true" class="waf-widget waf-container default inherited  ">
+	 	<div id="container3" data-type="container" data-lib="WAF" data-label-position="left" data-label="" data-constraint-top="true" data-constraint-right="false" data-constraint-left="true" data-constraint-bottom="false" class="waf-widget waf-container default inherited  waf-split-container ">
+	 	 	<div id="dataGrid1" data-type="dataGrid" data-selection-mode="single" data-resizable="false" data-lib="WAF" data-label-position="top" data-label="" data-footer-text="item(s)" data-display-error="true" data-constraint-top="true" data-constraint-right="true" data-constraint-left="true" data-constraint-bottom="true" data-column="[{'sourceAttID':'code','colID':'code','width':'55','title':'Cd'},{'sourceAttID':'depth','colID':'depth','width':'60','title':'Dp'},{'sourceAttID':'name','colID':'name','width':'180','title':'Name'},{'sourceAttID':'costOfGoods','colID':'costOfGoods','format':'%24%23%23%23%2C%23%230.00','width':'83','title':'Cost'}]" data-binding="product" class="waf-widget waf-dataGrid default inherited  "></div>
+ 	 	</div>
+ 		<div id="container4" data-type="container" data-lib="WAF" data-label-position="left" data-label="" data-constraint-top="true" data-constraint-right="false" data-constraint-left="true" data-constraint-bottom="false" class="waf-widget waf-container default inherited  waf-split-container ">
+	 	 		<div id="container1" data-type="container" data-lib="WAF" data-constraint-top="true" data-constraint-right="true" data-constraint-left="true" data-constraint-bottom="true" class="waf-widget waf-container default inherited  "></div>
+ 	 		<div id="richText1" data-type="richText" data-target="_blank" data-plainText="true" data-overflow="Hidden" data-lib="WAF" data-label-position="left" data-label="On Hand" data-constraint-top="true" data-constraint-right="false" data-constraint-left="true" data-constraint-bottom="false" data-binding="product.quantityOnHand" data-autoWidth="false" class="waf-widget waf-richText default inherited      waf-richText-level-0 waf-level-0 ">[product.quantityOnHand]</div>
+ 	 		<label id="label2" for="richText1" data-valign="middle" data-type="label" data-margin="5" data-lib="WAF" data-constraint-top="true" data-constraint-right="false" data-constraint-left="true" data-constraint-bottom="false" class="waf-widget waf-label default inherited  waf-label-richText waf-label-level-0 waf-level-0 ">On Hand</label>
+ 	 		<div id="richText2" data-type="richText" data-target="_blank" data-plainText="true" data-overflow="Hidden" data-lib="WAF" data-label-position="left" data-label="Can Make" data-constraint-top="true" data-constraint-right="false" data-constraint-left="true" data-constraint-bottom="false" data-binding="product.quantityCanMake" data-autoWidth="false" class="waf-widget waf-richText default inherited      waf-richText-level-0 waf-level-0 ">[product.quantityCanMake]</div>
+ 	 		<label id="label3" for="richText2" data-valign="middle" data-type="label" data-margin="5" data-lib="WAF" data-constraint-top="true" data-constraint-right="false" data-constraint-left="true" data-constraint-bottom="false" class="waf-widget waf-label default inherited  waf-label-richText waf-label-level-0 waf-level-0 ">Can Make</label>
+ 	 		<div id="richText3" data-type="richText" data-target="_blank" data-plainText="true" data-overflow="Hidden" data-lib="WAF" data-label-position="left" data-label=" Total" data-constraint-top="true" data-constraint-right="false" data-constraint-left="true" data-constraint-bottom="false" data-binding="product.quantityTotal" data-autoWidth="false" class="waf-widget waf-richText default inherited       waf-richText-level-0 waf-level-0 ">[product.quantityTotal]</div>
+ 	 		<label id="label4" for="richText3" data-valign="middle" data-type="label" data-margin="5" data-lib="WAF" data-constraint-top="true" data-constraint-right="false" data-constraint-left="true" data-constraint-bottom="false" class="waf-widget waf-label default inherited  waf-label-richText waf-label-level-0 waf-level-0 "> Total</label>
+ 	 		<div type="checkbox" id="checkbox1" data-type="checkbox" data-lib="WAF" data-label-position="right" data-label="Assembly" data-constraint-top="true" data-constraint-right="false" data-constraint-left="true" data-constraint-bottom="false" data-binding="product.isAssembly" class="waf-widget waf-checkbox default inherited       waf-checkbox-level-0 waf-level-0"></div>
+ 	 		<label id="label6" for="checkbox1" data-valign="middle" data-type="label" data-margin="5" data-lib="WAF" data-constraint-top="true" data-constraint-left="true" class="waf-widget waf-label default inherited  waf-label-checkbox waf-label-level-0 waf-level-0 ">Assembly</label>
+ 	 		<div type="checkbox" id="checkbox2" data-type="checkbox" data-lib="WAF" data-label-position="right" data-label="Component" data-constraint-top="true" data-constraint-right="false" data-constraint-left="true" data-constraint-bottom="false" data-binding="product.isUsed" class="waf-widget waf-checkbox default inherited       waf-checkbox-level-0 waf-level-0"></div>
+ 	 		<label id="label7" for="checkbox2" data-valign="middle" data-type="label" data-margin="5" data-lib="WAF" data-constraint-top="true" data-constraint-left="true" class="waf-widget waf-label default inherited  waf-label-checkbox waf-label-level-0 waf-level-0 ">Component</label>
+ 	 		<ul id="radioGroup1" data-type="radioGroup" data-lib="WAF" data-label-position="left" data-label="" data-display="horizontal" data-constraint-top="true" data-constraint-right="false" data-constraint-left="true" data-constraint-bottom="false" data-autoDispatch="true" class="waf-widget waf-radioGroup default inherited  "><li><input value="1" type="radio" name="radioGroup1" id="radioGroup1-0" checked="checked"/><label for="radioGroup1-0">Exploded BOM</label></li><li><input value="2" type="radio" name="radioGroup1" id="radioGroup1-1"/><label for="radioGroup1-1">Exploded Usage</label></li></ul>
+ 	 			<div id="richText5" data-type="richText" data-target="_blank" data-plainText="true" data-overflow="Hidden" data-lib="WAF" data-label-position="left" data-label="" data-constraint-top="true" data-constraint-right="false" data-constraint-left="true" data-constraint-bottom="false" data-autoWidth="false" class="waf-widget waf-richText default inherited        waf-richText-level-0 waf-level-0 ">Quantity:</div>
+ 	 	</div>
+ 	</div>
+		<script type="text/javascript" src="/waLib/WAF/Loader.js"></script>
+	</body>
+</html>
