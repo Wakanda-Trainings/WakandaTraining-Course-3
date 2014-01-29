@@ -1,0 +1,1 @@
+// converted from guided modelinclude("./Model/Component/Component-events.js");include("./Model/Component/Component-methods.js");include("./Model/Product/Product-events.js");include("./Model/Product/Product-methods.js");

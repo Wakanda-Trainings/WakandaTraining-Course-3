@@ -1,0 +1,1 @@
+model.Order.total.onGet = function () {				// Add your code here;			};

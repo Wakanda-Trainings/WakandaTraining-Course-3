@@ -1,8 +1,8 @@
-﻿<?xml version="1.0" encoding="UTF-8"?><project><file path="./BillofMaterials.waModel"><tag name="catalog"/>
+﻿<?xml version="1.0" encoding="UTF-8"?><project><file path="./Model.waModel"><tag name="catalog"/>
     
-  </file><file path="./BillofMaterials.waSettings"><tag name="settings"/>
+  </file><file path="./Settings.waSettings"><tag name="settings"/>
     
-  </file><file path="./BillofMaterials.waPerm"><tag name="permissions"/>
+  </file><file path="./Permissions.waPerm"><tag name="permissions"/>
     
   </file><folder path="./WebFolder/"><tag name="webFolder"/>
     

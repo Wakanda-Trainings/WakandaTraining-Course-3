@@ -1,0 +1,1 @@
+model.Transaction.events.onSave = function () {				var myID = sessionStorage.myID;				if (myID != null)					this.enteredBy = myID;			};

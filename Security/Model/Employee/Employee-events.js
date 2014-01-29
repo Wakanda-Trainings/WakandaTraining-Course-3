@@ -1,0 +1,1 @@
+model.Employee.salaryCalc.onGet = function () {				return this.salary;			};model.Employee.salaryCalc.onSet = function (value) {				var currSession = currentSession();				if (currSession.belongsTo('Admin'))					this.salary = value;			};

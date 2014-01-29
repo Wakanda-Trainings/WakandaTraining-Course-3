@@ -1,0 +1,1 @@
+model.SalesItem.extended.onGet = function () {				return this.price * this.quantity;			};

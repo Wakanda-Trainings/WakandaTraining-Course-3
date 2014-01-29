@@ -1,0 +1,1 @@
+model.OrderItem.collectionMethods.sumExtended = function () {				var result = 0;				this.forEach(function(item){					result += item.priceEach * item.quantity;				});				return result;			};

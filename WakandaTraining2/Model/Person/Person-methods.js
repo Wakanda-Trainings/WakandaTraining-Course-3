@@ -1,0 +1,1 @@
+model.Person.entityMethods.getChanges = function () {				return getEntityChanges(this);							};model.Person.entityMethods.getLastOrderByStatus = function (status) {				return this.purchaseOrders.find('status == :1 order by orderDate desc', status);			};

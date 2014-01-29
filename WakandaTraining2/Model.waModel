@@ -1,179 +1,1 @@
-﻿<?xml version="1.0" encoding="UTF-8"?><EntityModelCatalog>
-
-<dbInfo name="Model" uuid="DEB2380315EE8E47AF7052ECFC4FADBC"/>
-
-<extraProperties ____objectunic="true" version="1">
-
-	<classes ____objectunic="true">
-
-		<Person ____objectunic="true" panelColor="rgb(216, 216, 216)">
-
-			<panel ____objectunic="true" isOpen="true" pathVisible="true">
-
-				<position ____objectunic="true" X="388" Y="23"/>
-</panel>
-</Person>
-
-		<Company ____objectunic="true" panelColor="rgb(204, 193, 217)">
-
-			<panel ____objectunic="true" isOpen="true" pathVisible="true">
-
-				<position ____objectunic="true" X="692" Y="22"/>
-</panel>
-</Company>
-
-		<Order ____objectunic="true" panelColor="#B7DDE8">
-
-			<panel ____objectunic="true" isOpen="true" pathVisible="true">
-
-				<position ____objectunic="true" X="25" Y="28"/>
-</panel>
-</Order>
-
-		<OrderItem ____objectunic="true" panelColor="#eee">
-
-			<panel ____objectunic="true" isOpen="true" pathVisible="true">
-
-				<position ____objectunic="true" X="434" Y="463"/>
-</panel>
-</OrderItem>
-
-		<Product ____objectunic="true" panelColor="rgb(255, 230, 255)">
-
-			<panel ____objectunic="true" isOpen="true" pathVisible="true">
-
-				<position ____objectunic="true" X="779" Y="465"/>
-</panel>
-</Product>
-
-		<Payment ____objectunic="true" panelColor="#E5B9B7">
-
-			<panel ____objectunic="true" isOpen="false" pathVisible="true">
-
-				<position ____objectunic="true" X="287" Y="483"/>
-</panel>
-</Payment>
-</classes>
-
-	<model ____objectunic="true">
-
-		<relationCurve ____objectunic="true" run="false" mode="1"/>
-</model>
-</extraProperties>
-
-<dataClasses name="Company" className="Company" collectionName="Companies" scope="public" uuid="9D06077A746539478741238F27FD1B6C">
-
-	<attributes name="ID" kind="storage" scope="public" uuid="CAF8ECCF358C4C4DA6E2ABDD15E02763" unique="true" autosequence="true" type="long" primKey="true"/>
-
-	<attributes name="name" kind="storage" scope="public" uuid="42AE149F762E10438F0B7EAF45F438A0" type="string" indexKind="btree"/>
-
-	<attributes name="employees" kind="relatedEntities" scope="public" type="People" reversePath="true" path="employer"/>
-
-	<attributes name="allEmployeeOrders" kind="relatedEntities" scope="public" type="Orders" path="employees.purchaseOrders"/>
-
-	<attributes name="allProductsPurchased" kind="relatedEntities" scope="public" type="Products" path="employees.purchaseOrders.items.product"/>
-
-</dataClasses>
-
-<dataClasses name="Order" className="Order" collectionName="Orders" scope="public" uuid="9F8E854B3AA2CD45AC44278BDC4DF8F3">
-
-	<attributes name="ID" kind="storage" scope="public" uuid="F548FA476D26FC49B53A8A4D91CE20E2" unique="true" autosequence="true" type="long" primKey="true"/>
-
-	<attributes name="orderDate" kind="storage" scope="public" uuid="EF3CA46CB408A649A99D91E77A592094" type="date" simpleDate="false" indexKind="btree"/>
-
-	<attributes name="status" kind="storage" scope="public" uuid="3CCA52E956C6394D9F78ED72A35F8456" type="string" indexKind="cluster"/>
-
-	<attributes name="customer" kind="relatedEntity" scope="public" uuid="201A996482019345B622E42A2C4AC818" type="Person" path="Person"/>
-
-	<attributes name="items" kind="relatedEntities" scope="public" type="OrderItems" reversePath="true" path="order"/>
-
-	<attributes name="customerEmployerName" kind="alias" scope="public" type="string" path="customer.employer.name"/>
-
-	<attributes name="customerEmployer" kind="relatedEntity" scope="public" uuid="97C4989B703A2D4D821A169C85E6A0C2" type="Company" path="customer.employer"/>
-
-	<attributes name="subtotal" kind="storage" scope="public" uuid="7A88C3AF7A111C4AB8211CD29925D062" type="number"/>
-
-	<attributes name="salesTax" kind="storage" scope="public" uuid="CE02D7730CBD77488A8083838F40761E" type="number"/>
-
-	<attributes name="shipping" kind="storage" scope="public" uuid="2E02A8F803F49542843B4DDDABC853EB" type="number"/>
-
-	<attributes name="total" kind="calculated" scope="public" type="number" scriptKind="javascript">
-
-		<onGet from="guidedModel.Order.total.onGet"/>
-
-	</attributes>
-
-	<methods name="orderSubtotal" applyTo="entity" scope="publicOnServer" from="guidedModel.Order.entityMethods.orderSubtotal"/>
-
-</dataClasses>
-
-<dataClasses name="OrderItem" className="OrderItem" collectionName="OrderItems" scope="public" uuid="66D8A51677D55E4AAEDC429EB053A648">
-
-	<attributes name="ID" kind="storage" scope="public" uuid="80F7B799B32BAE4787CD43A1F09FD5F0" unique="true" autosequence="true" type="long" primKey="true"/>
-
-	<attributes name="priceEach" kind="storage" scope="public" uuid="D0628AACCE8DD44C91444382D828C64E" type="number"/>
-
-	<attributes name="quantity" kind="storage" scope="public" uuid="C708AB08A8977B4EB7C4E0CEDF5B6F96" type="number"/>
-
-	<attributes name="order" kind="relatedEntity" scope="public" uuid="A9AC68CF8E97A349905E9B142A655062" type="Order" path="Order"/>
-
-	<attributes name="product" kind="relatedEntity" scope="public" uuid="51461DB97B2D04408ED0692A96C36DA2" type="Product" path="Product"/>
-
-	<attributes name="productName" kind="alias" scope="public" type="string" path="product.name"/>
-
-	<methods name="sumExtended" applyTo="entityCollection" returnType="number" scope="publicOnServer" from="guidedModel.OrderItem.collectionMethods.sumExtended"/>
-
-</dataClasses>
-
-<dataClasses name="Payment" className="Payment" collectionName="Payments" scope="public" uuid="3306723B8427C74B9ADE11E788ED40B2">
-
-	<attributes name="ID" kind="storage" scope="public" uuid="D862295904FE0644B6B5DABCA5C83F62" unique="true" autosequence="true" type="long" primKey="true"/>
-
-	<attributes name="received" kind="storage" scope="public" uuid="9FF7A17C6C8CA0449AC19FA29DC65C10" type="date" simpleDate="false"/>
-
-	<attributes name="amount" kind="storage" scope="public" uuid="43D361ABE287994E95B26E775681C3ED" type="number"/>
-
-</dataClasses>
-
-<dataClasses name="Person" className="Person" collectionName="People" scope="public" uuid="7A3648B9F773974ABEAC2F356B7DB9FA">
-
-	<attributes name="ID" kind="storage" scope="public" uuid="06277FC55D712D4983CFBEFCA8FBC37F" unique="true" autosequence="true" type="long" primKey="true"/>
-
-	<attributes name="firstName" kind="storage" scope="public" uuid="FDD5FEDD8722D2489D545CED9CB503AA" type="string"/>
-
-	<attributes name="lastName" kind="storage" scope="public" uuid="A8B9E16A67797244A2B4ECE835D47B04" type="string" indexKind="btree"/>
-
-	<attributes name="mailingAddress" kind="storage" scope="public" uuid="64B4D9638996CF4FB968CF4BE3DEE086" type="string"/>
-
-	<attributes name="billingAddress" kind="storage" scope="public" uuid="E4C435DF06567F4DB0E99EE5FEE1F3C4" type="string"/>
-
-	<attributes name="phone" kind="storage" scope="public" uuid="2D3C22A46DB10B47A37C9BAF6FE5B6E2" type="string"/>
-
-	<attributes name="employer" kind="relatedEntity" scope="public" uuid="2B247E3DC21BBF4E90836B4CAA28FDDA" type="Company" path="Company"/>
-
-	<attributes name="purchaseOrders" kind="relatedEntities" scope="public" type="Orders" reversePath="true" path="customer"/>
-
-	<attributes name="employerName" kind="alias" scope="public" type="string" path="employer.name"/>
-
-	<attributes name="coWorkers" kind="relatedEntities" scope="public" type="People" path="employer.employees"/>
-
-	<methods name="getChanges" applyTo="entity" returnType="string" scope="publicOnServer" from="guidedModel.Person.entityMethods.getChanges"/>
-
-	<methods name="getLastOrderByStatus" applyTo="entity" scope="publicOnServer" from="guidedModel.Person.entityMethods.getLastOrderByStatus"/>
-
-</dataClasses>
-
-<dataClasses name="Product" className="Product" collectionName="Products" scope="public" uuid="B09A11AB83EE7B429D00AF0D07356576">
-
-	<attributes name="ID" kind="storage" scope="public" uuid="753ADFA48787A84B9BCF18D2FBF2DBFB" unique="true" autosequence="true" type="long" primKey="true"/>
-
-	<attributes name="code" kind="storage" scope="public" uuid="801D1FEEC8B81D498D69BE56ED565157" type="string" indexKind="btree"/>
-
-	<attributes name="name" kind="storage" scope="public" uuid="7081FF562724D44C8047D41220A333A3" type="string" indexKind="btree"/>
-
-	<attributes name="priceEach" kind="storage" scope="public" uuid="A43EDAEFA7502745B2B63B743D78C7C0" type="number"/>
-
-	<attributes name="orderItems" kind="relatedEntities" scope="public" type="OrderItems" reversePath="true" path="product"/>
-
-</dataClasses>
-</EntityModelCatalog>
+{	"toJSON": true,	"extraProperties": {		"version": "2",		"__CDATA": "\n\t\t\n\t\t\n\t",		"classes": {			"__CDATA": "\n\t\t\t\n\t\t\t\n\t\t\t\n\t\t\t\n\t\t\t\n\t\t\t\n\t\t",			"Person": {				"panelColor": "rgb(216, 216, 216)",				"__CDATA": "\n\t\t\t\t\n\t\t\t",				"panel": {					"isOpen": "true",					"pathVisible": "true",					"__CDATA": "\n\t\t\t\t\t\n\t\t\t\t",					"position": {						"X": "388",						"Y": "23"					}				}			},			"Company": {				"panelColor": "rgb(204, 193, 217)",				"__CDATA": "\n\t\t\t\t\n\t\t\t",				"panel": {					"isOpen": "true",					"pathVisible": "true",					"__CDATA": "\n\t\t\t\t\t\n\t\t\t\t",					"position": {						"X": "692",						"Y": "22"					}				}			},			"Order": {				"panelColor": "#B7DDE8",				"__CDATA": "\n\t\t\t\t\n\t\t\t",				"panel": {					"isOpen": "true",					"pathVisible": "true",					"__CDATA": "\n\t\t\t\t\t\n\t\t\t\t",					"position": {						"X": "25",						"Y": "28"					}				}			},			"OrderItem": {				"panelColor": "#eee",				"__CDATA": "\n\t\t\t\t\n\t\t\t",				"panel": {					"isOpen": "true",					"pathVisible": "true",					"__CDATA": "\n\t\t\t\t\t\n\t\t\t\t",					"position": {						"X": "434",						"Y": "463"					}				}			},			"Product": {				"panelColor": "rgb(255, 230, 255)",				"__CDATA": "\n\t\t\t\t\n\t\t\t",				"panel": {					"isOpen": "true",					"pathVisible": "true",					"__CDATA": "\n\t\t\t\t\t\n\t\t\t\t",					"position": {						"X": "779",						"Y": "465"					}				}			},			"Payment": {				"panelColor": "#E5B9B7",				"__CDATA": "\n\t\t\t\t\n\t\t\t",				"panel": {					"isOpen": "false",					"pathVisible": "true",					"__CDATA": "\n\t\t\t\t\t\n\t\t\t\t",					"position": {						"X": "287",						"Y": "483"					}				}			}		},		"model": {			"workspaceLeft": "0",			"workspaceTop": "0",			"__CDATA": "\n\t\t\t\n\t\t",			"relationCurve": {				"run": "false",				"mode": "1"			},			"scriptMode": "manual"		}	},	"dataClasses": [		{			"name": "Company",			"className": "Company",			"collectionName": "Companies",			"scope": "public",			"uuid": "9D06077A746539478741238F27FD1B6C",			"attributes": [				{					"name": "ID",					"kind": "storage",					"type": "long",					"primKey": true,					"scope": "public",					"uuid": "CAF8ECCF358C4C4DA6E2ABDD15E02763",					"autosequence": true				},				{					"name": "name",					"kind": "storage",					"type": "string",					"scope": "public",					"uuid": "42AE149F762E10438F0B7EAF45F438A0",					"indexKind": "btree"				},				{					"name": "employees",					"kind": "relatedEntities",					"type": "People",					"scope": "public",					"reversePath": true,					"path": "employer"				},				{					"name": "allEmployeeOrders",					"kind": "relatedEntities",					"type": "Orders",					"scope": "public",					"path": "employees.purchaseOrders"				},				{					"name": "allProductsPurchased",					"kind": "relatedEntities",					"type": "Products",					"scope": "public",					"path": "employees.purchaseOrders.items.product"				}			]		},		{			"name": "Order",			"className": "Order",			"collectionName": "Orders",			"scope": "public",			"uuid": "9F8E854B3AA2CD45AC44278BDC4DF8F3",			"attributes": [				{					"name": "ID",					"kind": "storage",					"type": "long",					"primKey": true,					"scope": "public",					"uuid": "F548FA476D26FC49B53A8A4D91CE20E2",					"autosequence": true				},				{					"name": "orderDate",					"kind": "storage",					"type": "date",					"scope": "public",					"uuid": "EF3CA46CB408A649A99D91E77A592094",					"simpleDate": false,					"indexKind": "btree"				},				{					"name": "status",					"kind": "storage",					"type": "string",					"scope": "public",					"uuid": "3CCA52E956C6394D9F78ED72A35F8456",					"indexKind": "cluster"				},				{					"name": "customer",					"kind": "relatedEntity",					"type": "Person",					"scope": "public",					"uuid": "201A996482019345B622E42A2C4AC818",					"path": "Person"				},				{					"name": "items",					"kind": "relatedEntities",					"type": "OrderItems",					"scope": "public",					"reversePath": true,					"path": "order"				},				{					"name": "customerEmployerName",					"kind": "alias",					"type": "string",					"scope": "public",					"path": "customer.employer.name"				},				{					"name": "customerEmployer",					"kind": "relatedEntity",					"type": "Company",					"scope": "public",					"uuid": "97C4989B703A2D4D821A169C85E6A0C2",					"path": "customer.employer"				},				{					"name": "subtotal",					"kind": "storage",					"type": "number",					"scope": "public",					"uuid": "7A88C3AF7A111C4AB8211CD29925D062"				},				{					"name": "salesTax",					"kind": "storage",					"type": "number",					"scope": "public",					"uuid": "CE02D7730CBD77488A8083838F40761E"				},				{					"name": "shipping",					"kind": "storage",					"type": "number",					"scope": "public",					"uuid": "2E02A8F803F49542843B4DDDABC853EB"				},				{					"name": "total",					"kind": "calculated",					"type": "number",					"scope": "public"				}			]		},		{			"name": "OrderItem",			"className": "OrderItem",			"collectionName": "OrderItems",			"scope": "public",			"uuid": "66D8A51677D55E4AAEDC429EB053A648",			"attributes": [				{					"name": "ID",					"kind": "storage",					"type": "long",					"primKey": true,					"scope": "public",					"uuid": "80F7B799B32BAE4787CD43A1F09FD5F0",					"autosequence": true				},				{					"name": "priceEach",					"kind": "storage",					"type": "number",					"scope": "public",					"uuid": "D0628AACCE8DD44C91444382D828C64E"				},				{					"name": "quantity",					"kind": "storage",					"type": "number",					"scope": "public",					"uuid": "C708AB08A8977B4EB7C4E0CEDF5B6F96"				},				{					"name": "order",					"kind": "relatedEntity",					"type": "Order",					"scope": "public",					"uuid": "A9AC68CF8E97A349905E9B142A655062",					"path": "Order"				},				{					"name": "product",					"kind": "relatedEntity",					"type": "Product",					"scope": "public",					"uuid": "51461DB97B2D04408ED0692A96C36DA2",					"path": "Product"				},				{					"name": "productName",					"kind": "alias",					"type": "string",					"scope": "public",					"path": "product.name"				}			]		},		{			"name": "Payment",			"className": "Payment",			"collectionName": "Payments",			"scope": "public",			"uuid": "3306723B8427C74B9ADE11E788ED40B2",			"attributes": [				{					"name": "ID",					"kind": "storage",					"type": "long",					"primKey": true,					"scope": "public",					"uuid": "D862295904FE0644B6B5DABCA5C83F62",					"autosequence": true				},				{					"name": "received",					"kind": "storage",					"type": "date",					"scope": "public",					"uuid": "9FF7A17C6C8CA0449AC19FA29DC65C10",					"simpleDate": false				},				{					"name": "amount",					"kind": "storage",					"type": "number",					"scope": "public",					"uuid": "43D361ABE287994E95B26E775681C3ED"				}			]		},		{			"name": "Person",			"className": "Person",			"collectionName": "People",			"scope": "public",			"uuid": "7A3648B9F773974ABEAC2F356B7DB9FA",			"attributes": [				{					"name": "ID",					"kind": "storage",					"type": "long",					"primKey": true,					"scope": "public",					"uuid": "06277FC55D712D4983CFBEFCA8FBC37F",					"autosequence": true				},				{					"name": "firstName",					"kind": "storage",					"type": "string",					"scope": "public",					"uuid": "FDD5FEDD8722D2489D545CED9CB503AA"				},				{					"name": "lastName",					"kind": "storage",					"type": "string",					"scope": "public",					"uuid": "A8B9E16A67797244A2B4ECE835D47B04",					"indexKind": "btree"				},				{					"name": "mailingAddress",					"kind": "storage",					"type": "string",					"scope": "public",					"uuid": "64B4D9638996CF4FB968CF4BE3DEE086"				},				{					"name": "billingAddress",					"kind": "storage",					"type": "string",					"scope": "public",					"uuid": "E4C435DF06567F4DB0E99EE5FEE1F3C4"				},				{					"name": "phone",					"kind": "storage",					"type": "string",					"scope": "public",					"uuid": "2D3C22A46DB10B47A37C9BAF6FE5B6E2"				},				{					"name": "employer",					"kind": "relatedEntity",					"type": "Company",					"scope": "public",					"uuid": "2B247E3DC21BBF4E90836B4CAA28FDDA",					"path": "Company"				},				{					"name": "purchaseOrders",					"kind": "relatedEntities",					"type": "Orders",					"scope": "public",					"reversePath": true,					"path": "customer"				},				{					"name": "employerName",					"kind": "alias",					"type": "string",					"scope": "public",					"path": "employer.name"				},				{					"name": "coWorkers",					"kind": "relatedEntities",					"type": "People",					"scope": "public",					"path": "employer.employees"				}			]		},		{			"name": "Product",			"className": "Product",			"collectionName": "Products",			"scope": "public",			"uuid": "B09A11AB83EE7B429D00AF0D07356576",			"attributes": [				{					"name": "ID",					"kind": "storage",					"type": "long",					"primKey": true,					"scope": "public",					"uuid": "753ADFA48787A84B9BCF18D2FBF2DBFB",					"autosequence": true				},				{					"name": "code",					"kind": "storage",					"type": "string",					"scope": "public",					"uuid": "801D1FEEC8B81D498D69BE56ED565157",					"indexKind": "btree"				},				{					"name": "name",					"kind": "storage",					"type": "string",					"scope": "public",					"uuid": "7081FF562724D44C8047D41220A333A3",					"indexKind": "btree"				},				{					"name": "priceEach",					"kind": "storage",					"type": "number",					"scope": "public",					"uuid": "A43EDAEFA7502745B2B63B743D78C7C0"				},				{					"name": "orderItems",					"kind": "relatedEntities",					"type": "OrderItems",					"scope": "public",					"reversePath": true,					"path": "product"				}			]		}	]}

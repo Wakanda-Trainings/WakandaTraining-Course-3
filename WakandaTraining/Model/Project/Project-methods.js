@@ -1,0 +1,1 @@
+model.Project.entityMethods.processFolders = function (topPath) {				var theFolders = this.foldersToProcess;						for(var i = 0; i < theFolders.length; i++)				{					var theFolder = theFolders[i];					if (theFolder.active)						if(theFolder.fileList.length > 0) //runs the On Load for fileList							theFolder.process(topPath); //pass in the top path				}			};

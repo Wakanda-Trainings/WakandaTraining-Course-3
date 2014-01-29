@@ -1,0 +1,1 @@
+model.CreditReport.events.onLoad = function () {				if (application.trackingOn != null)					if (application.trackingOn)						new ds.CreditReportAccess({							who : currentUser().name,							when : new Date(),							report : this						}).save();			};

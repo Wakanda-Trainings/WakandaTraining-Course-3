@@ -1,5 +1,0 @@
-﻿<?xml version="1.0" encoding="UTF-8"?><permissions>
-<allow action="create" groupName="Internal" groupID="6BA8264F9A0FE7438593EFDC7B2EC67A" resource="Model.Evaluation.byEmployeeName" temporaryForcePermissions="false" type="attribute"/>
-<allow action="update" groupName="Internal" groupID="6BA8264F9A0FE7438593EFDC7B2EC67A" resource="Model.Evaluation.byEmployeeName" temporaryForcePermissions="false" type="attribute"/>
-<allow action="read" groupName="Admin" groupID="01000000000000000000000000000000" resource="Model.Evaluation.byEmployeeName" temporaryForcePermissions="false" type="attribute"/>
-</permissions>

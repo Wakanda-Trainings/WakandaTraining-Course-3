@@ -1,52 +1,1 @@
-﻿
-guidedModel =// @startlock
-{
-	Person :
-	{
-		entityMethods :
-		{// @endlock
-			getChanges:function()
-			{// @lock
-				return getEntityChanges(this);
-				
-			},// @lock
-			
-			getLastOrderByStatus:function(status)
-			{// @lock
-				return this.purchaseOrders.find('status == :1 order by orderDate desc', status);
-			}// @startlock
-		}
-	},
-	Order :
-	{
-		total :
-		{
-			onGet:function()
-			{// @endlock
-				// Add your code here
-			}// @startlock
-		},
-		entityMethods :
-		{// @endlock
-			orderSubtotal:function()
-			{// @lock
-				return this.items.sumExtended();
-				
-			}// @startlock
-		}
-	},
-	OrderItem :
-	{
-		collectionMethods :
-		{// @endlock
-			sumExtended:function()
-			{// @lock
-				var result = 0;
-				this.forEach(function(item){
-					result += item.priceEach * item.quantity;
-				});
-				return result;
-			}// @startlock
-		}
-	}
-};// @endlock
+// converted from guided modelinclude("./Model/Company/Company-events.js");include("./Model/Company/Company-methods.js");include("./Model/Order/Order-events.js");include("./Model/Order/Order-methods.js");include("./Model/OrderItem/OrderItem-events.js");include("./Model/OrderItem/OrderItem-methods.js");include("./Model/Payment/Payment-events.js");include("./Model/Payment/Payment-methods.js");include("./Model/Person/Person-events.js");include("./Model/Person/Person-methods.js");include("./Model/Product/Product-events.js");include("./Model/Product/Product-methods.js");
